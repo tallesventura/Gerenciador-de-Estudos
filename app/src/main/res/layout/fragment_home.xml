@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.talles.android.daa_ti_tallesoliveira.activity.HomeFragment">
+
+    <TextView
+        android:id="@+id/fragment_home_txtTask_listing_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Opções de listagem: "
+        android:textStyle="bold"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true" />
+
+    <Spinner
+        android:id="@+id/fragment_home_task_listing_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/fragment_home_txtTask_listing_options"
+        android:layout_toRightOf="@id/fragment_home_txtTask_listing_options"
+        android:layout_marginLeft="30dp">
+    </Spinner>
+
+    <View
+        android:id="@+id/fragment_home_line_tasks"
+        android:layout_width="match_parent"
+        android:background="@color/cinza_400"
+        android:layout_height="2dp"
+        android:layout_marginTop="7dp"
+        android:layout_below="@id/fragment_home_txtTask_listing_options" />
+
+    <FrameLayout
+        android:id="@+id/fragment_home_container_body"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fragment_home_line_tasks"
+        android:layout_marginTop="30dp">
+    </FrameLayout>
+
+</RelativeLayout>

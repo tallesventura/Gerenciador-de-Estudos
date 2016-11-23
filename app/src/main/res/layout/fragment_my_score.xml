@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Spinner
+        android:id="@+id/my_score_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+    </Spinner>
+
+    <LinearLayout
+        android:id="@+id/my_score_layout_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/my_score_time"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/my_score_txtTotal_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_points"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/my_score_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/my_score_txtFinished_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/taks_finished"
+            android:textStyle="bold"
+            android:layout_marginLeft="40dp"/>
+
+        <TextView
+            android:id="@+id/my_score_finished_tasks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="15dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_score_layout_bets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_score_layout_points"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/my_score_txtTotal_bets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_bets"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/my_score_total_bets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/my_score_txtBets_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bets_won"
+            android:textStyle="bold"
+            android:layout_marginLeft="40dp"/>
+
+        <TextView
+            android:id="@+id/my_score_total_bets_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:layout_marginLeft="15dp"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/my_score_txtTasks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Atividades concluídas"
+        android:layout_below="@id/my_score_layout_bets"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"/>
+
+    <View
+        android:id="@+id/my_score_line_tasks"
+        android:layout_width="match_parent"
+        android:background="@color/cinza_400"
+        android:layout_height="2dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@id/my_score_txtTasks" />
+
+    <ListView
+        android:id="@+id/my_score_list_finished_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/my_score_line_tasks">
+    </ListView>
+
+</RelativeLayout>

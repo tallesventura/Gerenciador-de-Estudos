@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Gerenciador de Estudos</string>
+    <string-array name="array_days_of_the_week">
+        <item>Segunda</item>
+        <item>Terça</item>
+        <item>Quarta</item>
+        <item>Quinta</item>
+        <item>Sexta</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </string-array>
+    <string name="hint_from">De</string>
+    <string name="hint_to">Às</string>
+    <string-array name="array_task_type">
+        <item>Aula</item>
+        <item>Estudo</item>
+        <item>Exercíco</item>
+        <item>Prova</item>
+        <item>Trabalho</item>
+    </string-array>
+    <string name="confirm">Confirmar</string>
+    <string name="action_search">Search</string>
+    <string name="day">Dia: </string>
+    <string name="order_by">Ordenar por: </string>
+    <string name="tasks">Atividades</string>
+    <string-array name="array_orderBy">
+        <item>Matéria</item>
+        <item>Horário</item>
+        <item>Status</item>
+        <item>Tipo</item>
+    </string-array>
+    <string name="description">Descrição</string>
+    <string name="action_edit">Editar</string>
+    <string-array name="nav_drawer_labels">
+        <item>Atividades</item>
+        <item>Adicionar Atividade</item>
+        <item>Meus Pontos</item>
+    </string-array>
+    <string name="drawer_open">Drawer aberta</string>
+    <string name="drawer_close">Drawer fechada</string>
+    <string name="title_home">Atividades</string>
+    <string name="title_add_task">Adicionar Atividade</string>
+    <string name="title_my_score">Meus Pontos</string>
+    <string-array name="array_task_listing_options">
+        <item>Hoje</item>
+        <item>Esta semana</item>
+    </string-array>
+    <string name="alarm">Alarme: </string>
+    <string name="total_points">Total de pontos: </string>
+    <string name="taks_finished">Atividades concluídas: </string>
+    <string name="total_bets">Total de apostas: </string>
+    <string name="bets_won">Apostas ganhas: </string>
+    <string name="none">Nenhum</string>
+</resources>
