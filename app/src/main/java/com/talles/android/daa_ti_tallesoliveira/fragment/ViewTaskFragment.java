@@ -1,4 +1,4 @@
-package com.talles.android.daa_ti_tallesoliveira.activity;
+package com.talles.android.daa_ti_tallesoliveira.fragment;
 
 /**
  * Created by talles on 9/25/16.
@@ -17,12 +17,12 @@ import android.widget.Spinner;
 
 import com.talles.android.daa_ti_tallesoliveira.R;
 
-public class AddTaskFragment extends Fragment {
+public class ViewTaskFragment extends Fragment {
 
     private Spinner spinnerDaysWeek;
     private Spinner spinnerTaskTypes;
 
-    public AddTaskFragment() {
+    public ViewTaskFragment() {
 
     }
 
@@ -35,15 +35,14 @@ public class AddTaskFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_add_task, container, false);
-
+        View rootView = inflater.inflate(R.layout.fragment_view_task, container, false);
         return rootView;
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.menu_add_task, menu);
+        inflater.inflate(R.menu.menu_view_task, menu);
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {

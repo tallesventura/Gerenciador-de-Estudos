@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.talles.android.daa_ti_tallesoliveira.activity.AddTaskFragment">
+    tools:context="com.talles.android.daa_ti_tallesoliveira.fragment.AddTaskFragment">
 
     <ScrollView
         android:layout_width="match_parent"

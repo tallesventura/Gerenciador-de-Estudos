@@ -2,11 +2,9 @@ package com.talles.android.daa_ti_tallesoliveira.activity;
 
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +14,11 @@ import android.view.View;
 
 import com.crashlytics.android.Crashlytics;
 import com.talles.android.daa_ti_tallesoliveira.R;
+import com.talles.android.daa_ti_tallesoliveira.fragment.AddTaskFragment;
 import com.talles.android.daa_ti_tallesoliveira.fragment.FragmentDrawer;
+import com.talles.android.daa_ti_tallesoliveira.fragment.HomeFragment;
+import com.talles.android.daa_ti_tallesoliveira.fragment.MyScoreFragment;
+
 import io.fabric.sdk.android.Fabric;
 
 

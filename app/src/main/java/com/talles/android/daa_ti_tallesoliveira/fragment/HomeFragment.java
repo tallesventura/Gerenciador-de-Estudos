@@ -1,4 +1,4 @@
-package com.talles.android.daa_ti_tallesoliveira.activity;
+package com.talles.android.daa_ti_tallesoliveira.fragment;
 
 /**
  * Created by talles on 9/25/16.

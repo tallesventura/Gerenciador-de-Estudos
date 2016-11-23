@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.talles.android.daa_ti_tallesoliveira.R;
 
@@ -13,6 +14,7 @@ public class AddTaskActivity extends AppCompatActivity {
 
     private Spinner spinnerDaysWeek;
     private Spinner spinnerTaskTypes;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class AddTaskActivity extends AppCompatActivity {
                 R.array.array_task_type, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         this.spinnerTaskTypes.setAdapter(adapter);
+
+
     }
 
     @Override
