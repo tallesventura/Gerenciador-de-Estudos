@@ -51,4 +51,25 @@
     <string name="total_bets">Total de apostas: </string>
     <string name="bets_won">Apostas ganhas: </string>
     <string name="none">Nenhum</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="or">Ou</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="action_finish">Concluir</string>
+    <string name="sign_in_failed">Usuário e/ou senha inválido(s).</string>
+    <string name="sign_up_failed">Erro ao cadastrar</string>
+    <string name="sign_up_success">Cadastro concluído com sucesso</string>
+    <string name="prompt_password">Senha</string>
+    <string name="action_sign_in_short">Entrar</string>
+    <string name="action_sign_up">Cadastrar-se</string>
+    <string name="error_invalid_email">Endereço de email inválido</string>
+    <string name="error_incorrect_email">Endereço de email incorreto</string>
+    <string name="error_incorrect_password">Senha incorreta</string>
+    <string name="error_invalid_password">Senha incorreta</string>
+    <string name="error_short_password">A senha é muito curta</string>
+    <string name="error_field_required">Este campo é obrigatório</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>
