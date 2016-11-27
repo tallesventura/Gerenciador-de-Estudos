@@ -17,11 +17,24 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.talles.android.daa_ti_tallesoliveira.R;
+import com.talles.android.daa_ti_tallesoliveira.model.TaskModel;
+
+import java.util.HashMap;
 
 public class AddTaskFragment extends Fragment {
 
@@ -29,6 +42,15 @@ public class AddTaskFragment extends Fragment {
     private Spinner spinnerTaskTypes;
     private TextView txtFrom;
     private TextView txtTo;
+    private Button btnConfirm;
+    private EditText txtDescription;
+    private EditText txtSubject;
+    private EditText txtEmail;
+
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference tasksRef = null;
+    private FirebaseAuth mAuth;
+    private FirebaseUser user;
 
     public AddTaskFragment() {
 
@@ -38,6 +60,47 @@ public class AddTaskFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        mAuth = FirebaseAuth.getInstance();
+        user = mAuth.getCurrentUser();
+        if(user != null) {
+            DatabaseReference rootRef = database.getReference("users");
+            DatabaseReference userRef = rootRef.child(user.getUid());
+            tasksRef = userRef.child("tasks");
+        }
+
+        tasksRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                TaskModel tm = dataSnapshot.getValue(TaskModel.class);
+                if(tm != null){
+                    Toast.makeText(getActivity(),"Atividade adicionada.",Toast.LENGTH_LONG);
+                }else{
+                    Toast.makeText(getActivity(),"Erro ao adicionar atividade.",Toast.LENGTH_LONG);
+                }
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     @Override
@@ -57,6 +120,10 @@ public class AddTaskFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        txtDescription = (EditText) view.findViewById(R.id.add_task_description);
+        txtSubject = (EditText) view.findViewById(R.id.add_task_subject);
+        txtEmail = (EditText) view.findViewById(R.id.add_task_supervisorEmail);
 
         this.spinnerDaysWeek = (Spinner) view.findViewById(R.id.days_week);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -115,6 +182,14 @@ public class AddTaskFragment extends Fragment {
 
             }
         });
+
+        this.btnConfirm = (Button) view.findViewById(R.id.add_task_confirm);
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addTask();
+            }
+        });
     }
 
     @Override
@@ -125,5 +200,21 @@ public class AddTaskFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    private void addTask(){
+        String day = spinnerDaysWeek.getSelectedItem().toString();
+        String start_time = txtFrom.getText().toString();
+        String end_time = txtTo.getText().toString();
+        String type = spinnerTaskTypes.getSelectedItem().toString();
+        String subject = txtSubject.getText().toString();
+        String description = txtDescription.getText().toString();
+        String email = txtEmail.getText().toString();
+
+        TaskModel tm = new TaskModel(day,start_time,end_time,type,subject,description,email);
+
+        String key = tasksRef.push().getKey();
+        tasksRef.child(key).setValue(tm);
+
     }
 }
