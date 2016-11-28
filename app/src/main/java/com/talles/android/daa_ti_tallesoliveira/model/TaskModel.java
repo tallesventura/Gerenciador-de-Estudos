@@ -6,6 +6,7 @@ package com.talles.android.daa_ti_tallesoliveira.model;
 
 public class TaskModel {
 
+    private String id;
     private String day;
     private String start_time;
     private String end_time;
@@ -50,7 +51,51 @@ public class TaskModel {
         return description;
     }
 
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
+    }
+
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setSupervisor_email(String supervisor_email) {
+        this.supervisor_email = supervisor_email;
+    }
+
     public String getSupervisor_email() {
         return supervisor_email;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof TaskModel){
+            return this.id.equals(((TaskModel) obj).getId());
+        }
+        return false;
     }
 }

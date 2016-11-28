@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Gerenciador de Estudos</string>
+    <string name="no">Não</string>
+    <string name="yes">Sim</string>
     <string-array name="array_days_of_the_week">
         <item>Segunda</item>
         <item>Terça</item>
@@ -14,7 +16,7 @@
     <string-array name="array_task_type">
         <item>Aula</item>
         <item>Estudo</item>
-        <item>Exercíco</item>
+        <item>Exercício</item>
         <item>Prova</item>
         <item>Trabalho</item>
     </string-array>
@@ -23,10 +25,14 @@
     <string name="day">Dia: </string>
     <string name="order_by">Ordenar por: </string>
     <string name="tasks">Atividades</string>
-    <string-array name="array_orderBy">
+    <string-array name="array_orderBy_week">
+        <item>Dia</item>
         <item>Matéria</item>
+        <item>Tipo</item>
+    </string-array>
+    <string-array name="array_orderBy_day">
         <item>Horário</item>
-        <item>Status</item>
+        <item>Matéria</item>
         <item>Tipo</item>
     </string-array>
     <string name="description">Descrição</string>

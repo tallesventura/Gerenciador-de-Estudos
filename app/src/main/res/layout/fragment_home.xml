@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Opções de listagem: "
+        style="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true" />
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/fragment_home_txtTask_listing_options"
         android:layout_toRightOf="@id/fragment_home_txtTask_listing_options"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
         android:layout_marginLeft="30dp">
     </Spinner>
 

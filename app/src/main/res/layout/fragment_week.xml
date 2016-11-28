@@ -11,10 +11,12 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="@string/order_by"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_marginLeft="3dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_alignParentTop="true"
+        />
 
     <Spinner
         android:id="@+id/fragment_week_spinner_orderBy"
@@ -23,29 +25,9 @@
         android:layout_toEndOf="@id/fragment_week_txtOrderBy"
         android:layout_toRightOf="@id/fragment_week_txtOrderBy"
         android:layout_marginLeft="5dp"
-        android:layout_marginBottom="20dp">
-    </Spinner>
-
-    <TextView
-        android:id="@+id/fragment_week_txtDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text="@string/day"
-        android:layout_marginLeft="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@id/fragment_week_spinner_orderBy"
-        android:layout_toRightOf="@id/fragment_week_spinner_orderBy" />
-
-    <Spinner
-        android:id="@+id/fragment_week_spinner_day"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/fragment_week_txtDay"
-        android:layout_toRightOf="@id/fragment_week_txtDay"
-        android:layout_marginLeft="5dp"
         android:layout_marginBottom="20dp"
-        android:layout_alignParentTop="true">
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        >
     </Spinner>
 
     <TextView
@@ -54,6 +36,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:text="@string/tasks"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_below="@id/fragment_week_spinner_orderBy"
         android:layout_marginLeft="3dp"
         android:layout_alignParentStart="true"

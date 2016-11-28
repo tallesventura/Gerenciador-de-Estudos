@@ -213,8 +213,36 @@ public class AddTaskFragment extends Fragment {
 
         TaskModel tm = new TaskModel(day,start_time,end_time,type,subject,description,email);
 
+        int priority;
+        switch (day){
+            case "Segunda":
+                priority = 1;
+                break;
+            case "Terça":
+                priority = 2;
+                break;
+            case "Quarta":
+                priority = 3;
+                break;
+            case "Quinta":
+                priority = 4;
+                break;
+            case "Sexta":
+                priority = 5;
+                break;
+            case "Sábado":
+                priority = 6;
+                break;
+            case "Domingo":
+                priority = 7;
+                break;
+            default:
+                priority = 8;
+        }
+
         String key = tasksRef.push().getKey();
-        tasksRef.child(key).setValue(tm);
+        tm.setId(key);
+        tasksRef.child(key).setValue(tm,priority);
 
     }
 }
