@@ -16,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,12 +28,12 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.talles.android.daa_ti_tallesoliveira.R;
 import com.talles.android.daa_ti_tallesoliveira.adapter.DayTaskListAdapter;
-import com.talles.android.daa_ti_tallesoliveira.adapter.WeekTaskListAdapter;
 import com.talles.android.daa_ti_tallesoliveira.model.TaskModel;
 import com.talles.android.daa_ti_tallesoliveira.utils.SubjectComparator;
 import com.talles.android.daa_ti_tallesoliveira.utils.TaskTypeComparator;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 
 
@@ -159,7 +158,35 @@ public class DayFragment extends Fragment{
         adapter = new DayTaskListAdapter(getContext(), R.layout.day_list_item, taskList);
         listView.setAdapter(adapter);
 
-        Query queryRef = tasksRef.orderByChild("start_time");
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
+        String key;
+        switch (day){
+            case Calendar.SUNDAY:
+                key = "Domingo";
+                break;
+            case Calendar.MONDAY:
+                key = "Segunda";
+                break;
+            case Calendar.TUESDAY:
+                key = "Terça";
+                break;
+            case Calendar.WEDNESDAY:
+                key = "Quarta";
+                break;
+            case Calendar.THURSDAY:
+                key = "Quinta";
+                break;
+            case Calendar.FRIDAY:
+                key = "Sexta";
+                break;
+            case Calendar.SATURDAY:
+                key = "Sábado";
+                break;
+            default:
+                key = null;
+        }
+
+        Query queryRef = tasksRef.orderByChild("day").equalTo(key);
 
         final ProgressDialog pd = new ProgressDialog(getContext());
         pd.setTitle("Carregando atividades");
@@ -170,11 +197,16 @@ public class DayFragment extends Fragment{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 taskList.clear();
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                    TaskModel tm = ds.getValue(TaskModel.class);
-                    taskList.add(tm);
-                }
                 pd.dismiss();
+                if(dataSnapshot.getChildrenCount() > 0) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        TaskModel tm = ds.getValue(TaskModel.class);
+                        taskList.add(tm);
+                    }
+                }else{
+                    Toast.makeText(getContext(),"Nenhuma atividade registrada para hoje",Toast.LENGTH_LONG);
+                }
+
                 adapter.notifyDataSetChanged();
             }
 

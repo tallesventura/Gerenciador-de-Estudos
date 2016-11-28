@@ -40,7 +40,6 @@
     <string-array name="nav_drawer_labels">
         <item>Atividades</item>
         <item>Adicionar Atividade</item>
-        <item>Meus Pontos</item>
     </string-array>
     <string name="drawer_open">Drawer aberta</string>
     <string name="drawer_close">Drawer fechada</string>
@@ -59,6 +58,8 @@
     <string name="none">Nenhum</string>
     <string name="title_activity_login">Sign in</string>
     <string name="or">Ou</string>
+    <string name="supervisor_email">Email do supervisor</string>
+    <string name="subject">Matéria</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

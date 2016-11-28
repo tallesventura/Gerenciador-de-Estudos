@@ -21,7 +21,6 @@ import com.talles.android.daa_ti_tallesoliveira.adapter.NavigationDrawerAdapter;
 import com.talles.android.daa_ti_tallesoliveira.model.NavDrawerItem;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 

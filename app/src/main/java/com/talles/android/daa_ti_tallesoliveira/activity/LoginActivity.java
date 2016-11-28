@@ -2,22 +2,23 @@ package com.talles.android.daa_ti_tallesoliveira.activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.talles.android.daa_ti_tallesoliveira.R;
+import io.fabric.sdk.android.Fabric;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
@@ -97,23 +99,28 @@ public class LoginActivity extends AppCompatActivity {
 
                                     switch (flagEmail){
                                         case INVALID_EMAIL:
-                                            Toast.makeText(LoginActivity.this, R.string.error_invalid_email,Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginActivity.this, R.string.error_invalid_email,Toast.LENGTH_LONG).show();
                                             break;
                                         case INCORRECT_EMAIL:
-                                            Toast.makeText(LoginActivity.this, R.string.error_incorrect_email,Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginActivity.this, R.string.error_incorrect_email,Toast.LENGTH_LONG).show();
                                             break;
+                                        case EMAIL_OK:
+                                            Toast.makeText(LoginActivity.this, R.string.sign_in_failed,Toast.LENGTH_LONG).show();
+                                            break;
+
                                     }
 
-                                    switch (flagEmail){
+                                    switch (flagPassword){
                                         case INVALID_PASSWORD:
-                                            Toast.makeText(LoginActivity.this, R.string.error_invalid_password,Toast.LENGTH_SHORT).show();
-                                            break;
-                                        case INCORRECT_PASSWORD:
-                                            Toast.makeText(LoginActivity.this, R.string.error_incorrect_password,Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginActivity.this, R.string.error_invalid_password,Toast.LENGTH_LONG).show();
                                             break;
                                         case SHORT_PASSWORD:
-                                            Toast.makeText(LoginActivity.this, R.string.error_short_password,Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(LoginActivity.this, R.string.error_short_password,Toast.LENGTH_LONG).show();
                                             break;
+                                        case PASSWORD_OK:
+                                            Toast.makeText(LoginActivity.this, R.string.sign_in_failed,Toast.LENGTH_LONG).show();
+                                            break;
+
                                     }
 
                                 }else{

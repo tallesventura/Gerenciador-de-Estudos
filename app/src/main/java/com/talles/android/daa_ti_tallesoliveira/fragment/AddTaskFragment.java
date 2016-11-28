@@ -22,19 +22,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.talles.android.daa_ti_tallesoliveira.R;
 import com.talles.android.daa_ti_tallesoliveira.model.TaskModel;
-
-import java.util.HashMap;
 
 public class AddTaskFragment extends Fragment {
 
@@ -69,37 +63,6 @@ public class AddTaskFragment extends Fragment {
             tasksRef = userRef.child("tasks");
         }
 
-        tasksRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                TaskModel tm = dataSnapshot.getValue(TaskModel.class);
-                if(tm != null){
-                    Toast.makeText(getActivity(),"Atividade adicionada.",Toast.LENGTH_LONG);
-                }else{
-                    Toast.makeText(getActivity(),"Erro ao adicionar atividade.",Toast.LENGTH_LONG);
-                }
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
 
@@ -170,7 +133,7 @@ public class AddTaskFragment extends Fragment {
             }
         });
 
-        txtTo = (TextView) view.findViewById(R.id.add_task_EditFromTime);
+        txtTo = (TextView) view.findViewById(R.id.add_task_EditToTime);
         txtTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -190,6 +153,7 @@ public class AddTaskFragment extends Fragment {
                 addTask();
             }
         });
+
     }
 
     @Override
@@ -243,6 +207,6 @@ public class AddTaskFragment extends Fragment {
         String key = tasksRef.push().getKey();
         tm.setId(key);
         tasksRef.child(key).setValue(tm,priority);
-
+        getActivity().getFragmentManager().popBackStack();
     }
 }

@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.talles.android.daa_ti_tallesoliveira.R;
 import com.talles.android.daa_ti_tallesoliveira.model.NavDrawerItem;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import com.talles.android.daa_ti_tallesoliveira.R;
 
 /**
  * Created by talles on 9/25/16.

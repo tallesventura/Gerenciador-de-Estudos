@@ -17,8 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.talles.android.daa_ti_tallesoliveira.R;
-import com.talles.android.daa_ti_tallesoliveira.fragment.DayFragment;
-import com.talles.android.daa_ti_tallesoliveira.fragment.WeekFragment;
 
 public class HomeFragment extends Fragment {
 

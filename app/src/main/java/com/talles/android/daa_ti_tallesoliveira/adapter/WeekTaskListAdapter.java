@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.talles.android.daa_ti_tallesoliveira.model.TaskModel;
 import com.talles.android.daa_ti_tallesoliveira.R;
+import com.talles.android.daa_ti_tallesoliveira.model.TaskModel;
 
 import java.util.List;
 

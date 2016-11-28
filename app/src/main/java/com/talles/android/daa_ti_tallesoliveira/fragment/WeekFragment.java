@@ -3,13 +3,11 @@ package com.talles.android.daa_ti_tallesoliveira.fragment;
 /**
  * Created by talles on 9/25/16.
  */
+
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -151,7 +149,7 @@ public class WeekFragment extends Fragment{
             }
         });
 
-
+        /*
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -164,6 +162,7 @@ public class WeekFragment extends Fragment{
                 transaction.replace(R.id.container_body,frag);
             }
         });
+        */
 
     }
 
